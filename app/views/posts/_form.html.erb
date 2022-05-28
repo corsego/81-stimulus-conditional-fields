@@ -11,14 +11,16 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :access, style: "display: block" %>
-    <%= form.select :access, Post.accesses, {include_blank: true}, {} %>
-  </div>
+  <div data-controller="showhide" data-showhide-show-if-value="passcode_protected">
+    <div>
+      <%= form.label :access, style: "display: block" %>
+      <%= form.select :access, Post.accesses, {include_blank: true}, {data: {showhide_target: "input", action: "change->showhide#toggle"}} %>
+    </div>
 
-  <div>
-    <%= form.label :passcode, style: "display: block" %>
-    <%= form.text_field :passcode %>
+    <div data-showhide-target="output">
+      <%= form.label :passcode, style: "display: block" %>
+      <%= form.text_field :passcode %>
+    </div>
   </div>
 
   <div>
