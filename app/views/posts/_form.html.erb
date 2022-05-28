@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :access, style: "display: block" %>
-    <%= form.text_field :access %>
+    <%= form.select :access, Post.accesses, {include_blank: true}, {} %>
   </div>
 
   <div>
